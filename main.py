@@ -20,7 +20,7 @@ def get_config():
 
 
 def main(*, mode: str = "all"):
-    if mode not in ["all", "download, dump"]:
+    if mode not in ["all", "download", "dump"]:
         raise ValueError(f"Invalid mode: {mode}")
     config = get_config()
     if mode in ("all", "download"):
@@ -42,4 +42,4 @@ def main(*, mode: str = "all"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=("all", "download", "dump"), default="all")
-    main()
+    main(mode=parser.parse_args().mode)
