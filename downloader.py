@@ -6,10 +6,8 @@ import pandas as pd
 from pyarrow import fs
 from tqdm import tqdm
 
-LOCAL_DATA_FOLDER = "data"
-LOCAL_STOCK_FOLDER = f"{LOCAL_DATA_FOLDER}/csv"
 STOCK_LIST_FILE = "./us_stock_list.csv"
-REQUIRED_FIELDS = ["access_key", "secret_key", "endpoint", "folder"]
+REQUIRED_FIELDS = ["access_key", "secret_key", "endpoint", "folder", "local_path"]
 
 MAX_WORKERS = 6
 
@@ -47,7 +45,7 @@ class Downloader:
         self.endpoint = config["endpoint"]
         # ensure the folder exists
         self.remote_folder = config["folder"]
-        self.local_folder = LOCAL_STOCK_FOLDER
+        self.local_folder = f"{config['local_path']}/csv"
         path = Path(self.local_folder)
         path.mkdir(parents=True, exist_ok=True)
 
