@@ -20,8 +20,7 @@ logger = logging.getLogger(__name__)
 class Downloader:
     def __init__(self, config: dict[str, str | None]):
         # check env variables
-        required_fields = ["access_key", "secret_key", "endpoint"]
-        for key in required_fields:
+        for key in REQUIRED_FIELDS:
             value = config.get(key, None)
             if not value or len(value) == 0:
                 raise ValueError(f"missing env variable: {key}")
