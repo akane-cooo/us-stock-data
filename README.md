@@ -1,5 +1,7 @@
 # US Stock Data
 
+[简体中文](./README.zh.md)
+
 ## 1. Introduction
 
 U.S. stock daily data in [Qlib's](https://github.com/microsoft/qlib) binary format **since 2019**. Each release is named after the latest trading date in its calendar (`YYYY-MM-DD`). The new release expected after each trading day.
